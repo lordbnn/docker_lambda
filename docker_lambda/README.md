@@ -2,6 +2,15 @@
 This project was done with AWS lambda container in mind, hence the Docker image being an AWS ECR image.
 To make use of this, one would have to use the Amazon ECR (Elastic Container Registry) via an AWS account.
 
+
+##How it works:
+Source: Public S3 bucket
+File type: CSV
+Destination: Postgresql RDMS
+
+The pipeline starts by fetching a csv file from it's primary storage, an S3 bucket, then reh=gisters a connection with Postgresql using specific credentials, if credentials are valid, the fetched CSV which has been transformed to a dataframe would be loaded into the Postgresl in the appropriate table columns. When loading of data is fully executed, the pipeline stops running.
+
+
 Below are the steps to run this app:
 - Clone the repository
 - Pip install docker, preferably in a virtual environment (don't forget to git initialize it)
